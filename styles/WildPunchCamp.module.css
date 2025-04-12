@@ -1,0 +1,143 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0088aa 0%, #4dcc00 100%);
+  color: white;
+  overflow: hidden;
+}
+
+.heroContent {
+  text-align: center;
+  max-width: 1200px;
+  z-index: 1;
+}
+
+.year {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 1rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Anton', sans-serif;
+}
+
+.dates {
+  font-family: 'Quotes Script', 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  letter-spacing: 0.1rem;
+}
+
+.title {
+  font-size: 7rem;
+  font-weight: 900;
+  letter-spacing: 0.5rem;
+  color: #4dcc00;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  line-height: 1;
+  font-family: 'Anton', sans-serif;
+}
+
+.title2 {
+  font-size: 4rem;  /* Taille par défaut pour desktop */
+  font-weight: 900;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  line-height: 1.1;
+  font-family: 'Quotes Script', 'Great Vibes', cursive;
+}
+
+/* Media queries pour l'adaptation mobile */
+@media (max-width: 768px) {
+  .title2 {
+    font-size: 3rem;  /* Taille réduite pour tablettes */
+    letter-spacing: 0.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title2 {
+    font-size: 2.5rem;  /* Taille encore plus réduite pour smartphones */
+    letter-spacing: 0.15rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.tagline {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  margin-bottom: 2rem;
+}
+
+.separator {
+  width: 80%;
+  height: 2px;
+  background-color: #4dcc00;
+  margin: 2rem auto;
+}
+
+.description {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+  font-family: 'Quotes Script', 'Great Vibes', cursive;
+  letter-spacing: 0.3rem;
+}
+
+.location {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.coachImage {
+  transition: transform 0.3s ease;
+}
+
+.coachImage:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .year {
+    font-size: 2.5rem;
+    letter-spacing: 0.5rem;
+  }
+  
+  .dates {
+    font-size: 1.5rem;
+  }
+  
+  .title {
+    font-size: 3.5rem;
+    letter-spacing: 0.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tagline {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .separator {
+    margin: 1rem auto;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+  }
+  
+  .location {
+    font-size: 1.2rem;
+  }
+} 

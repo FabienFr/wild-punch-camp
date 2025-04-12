@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-body;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Assurer que tous les titres de section sont centrés */
+section h2 {
+  text-align: center;
+}
+
+/* Exception pour les titres qui doivent être alignés à gauche */
+.text-left-override h2 {
+  text-align: left;
+}
+
+@font-face {
+    font-family: "Quotes Script";
+    src: url("https://db.onlinewebfonts.com/t/3cb40c8e5b6fe24fe50e1776983523d9.eot");
+    src: url("https://db.onlinewebfonts.com/t/3cb40c8e5b6fe24fe50e1776983523d9.eot?#iefix") format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/3cb40c8e5b6fe24fe50e1776983523d9.woff2") format("woff2"),
+    url("https://db.onlinewebfonts.com/t/3cb40c8e5b6fe24fe50e1776983523d9.woff") format("woff"),
+    url("https://db.onlinewebfonts.com/t/3cb40c8e5b6fe24fe50e1776983523d9.ttf") format("truetype"),
+    url("https://db.onlinewebfonts.com/t/3cb40c8e5b6fe24fe50e1776983523d9.svg#QuotesScript-Regular") format("svg");
+}
+
+.quotes-script {
+    font-family: "Quotes Script", cursive;
+}
