@@ -1,8 +1,14 @@
+"use client";
+
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import styles from "../styles/WildPunchCamp.module.css";
 import Button from "./components/Button";
+import AnimatedText from "./components/AnimatedText";
+import AnimatedSection from "./components/AnimatedSection";
+import { motion } from "framer-motion";
+import PunchingTitle from "./components/PunchingTitle";
 
 export default function WildPunchCampPage() {
   return (
@@ -35,22 +41,40 @@ export default function WildPunchCampPage() {
           </div>
 
           <div className={`${styles.heroContent} relative z-20`}>
-            <h2 className={styles.year}>ÉTÉ 2025</h2>
-            <p className={styles.dates}>
+            <motion.h2 initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className={styles.year}>
+              ÉTÉ 2025
+            </motion.h2>
+
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.3 }} className={styles.dates}>
               jeudi 24
               <svg className="inline-block w-8 h-8 mx-1" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
               dimanche 27 juillet
-            </p>
-            <h1 className={styles.title}>WILD PUNCH CAMP</h1>
-            <p className={styles.tagline}>VIBREZ AU COEUR DE L'AQUITAINE DURANT 3 JOURS DE REMISE EN FORME</p>
-            <div className={styles.separator}></div>
-            <p className={styles.description}>SÉJOUR INITIATION DÉCOUVERTE</p>
-            <p className={styles.location}>À seulement une 1H15 de Bordeaux</p>
+            </motion.p>
 
-            {/* Bouton CTA principal */}
-            <Button className="inline-block px-8 py-4 mt-8 text-lg font-bold text-gray-900 transition-all duration-300 bg-white rounded-full shadow-lg hover:bg-[#4dcc00] hover:text-white">RÉSERVER MA PLACE</Button>
+            <div className="relative flex items-center justify-center my-4">
+              {/* Titre */}
+              <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.8, delay: 0.6 }} className="z-10">
+                <PunchingTitle text="WILD PUNCH CAMP" className={styles.title} />
+              </motion.div>
+            </div>
+
+            <AnimatedText text="VIBREZ AU COEUR DE L'AQUITAINE DURANT 3 JOURS DE REMISE EN FORME" className={styles.tagline} delay={1} />
+
+            <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.8, delay: 1.4 }} className={styles.separator}></motion.div>
+
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 1.6 }} className={styles.description}>
+              SÉJOUR INITIATION DÉCOUVERTE
+            </motion.p>
+
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 1.8 }} className={styles.location}>
+              À seulement une 1H15 de Bordeaux
+            </motion.p>
+
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 2 }}>
+              <Button className="inline-block px-8 py-4 mt-8 text-lg font-bold text-gray-900 transition-all duration-300 bg-white rounded-full shadow-lg hover:bg-[#4dcc00] hover:text-white">RÉSERVER MA PLACE</Button>
+            </motion.div>
           </div>
         </section>
 
@@ -75,60 +99,68 @@ export default function WildPunchCampPage() {
             </div>
 
             {/* Prépa Physique */}
-            <div className="max-w-6xl mx-auto mb-8 overflow-hidden rounded-lg shadow-lg md:mb-16">
-              <div className="flex flex-col md:flex-row">
-                <div className="bg-[#0088aa] text-white p-6 md:p-8 md:w-1/2 flex flex-col justify-center">
-                  <h3 className="text-5xl md:text-5xl font-bold mb-4 md:mb-6 text-[#4dcc00]">PRÉPA PHYSIQUE</h3>
-                  <p className="text-base md:text-lg">La préparation physique est un entraînement structuré visant à améliorer les capacités athlétiques, que ce soit pour un sport spécifique ou pour renforcer son corps de manière générale.</p>
-                  <p className="mt-3 text-base md:mt-4 md:text-lg">Elle combine différents axes de travail : force, endurance, vitesse, mobilité et coordination, en fonction des objectifs et du niveau de chacun.</p>
-                </div>
-                <div className="md:w-1/2 relative min-h-[200px] md:min-h-[300px] overflow-hidden">
-                  <img src="/images/prepa.png" alt="Préparation physique" className="absolute inset-0 object-cover w-full h-full" />
+            <AnimatedSection delay={0.2}>
+              <div className="max-w-6xl mx-auto mb-8 overflow-hidden rounded-lg shadow-lg md:mb-16">
+                <div className="flex flex-col md:flex-row">
+                  <div className="bg-[#0088aa] text-white p-6 md:p-8 md:w-1/2 flex flex-col justify-center">
+                    <h3 className="text-5xl md:text-5xl font-bold mb-4 md:mb-6 text-[#4dcc00]">PRÉPA PHYSIQUE</h3>
+                    <p className="text-base md:text-lg">La préparation physique est un entraînement structuré visant à améliorer les capacités athlétiques, que ce soit pour un sport spécifique ou pour renforcer son corps de manière générale.</p>
+                    <p className="mt-3 text-base md:mt-4 md:text-lg">Elle combine différents axes de travail : force, endurance, vitesse, mobilité et coordination, en fonction des objectifs et du niveau de chacun.</p>
+                  </div>
+                  <motion.div className="md:w-1/2 relative min-h-[200px] md:min-h-[300px] overflow-hidden" whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+                    <img src="/images/prepa.png" alt="Préparation physique" className="absolute inset-0 object-cover w-full h-full" />
+                  </motion.div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* La Boxe */}
-            <div className="max-w-6xl mx-auto mb-16 overflow-hidden rounded-lg shadow-lg">
-              <div className="flex flex-col md:flex-row-reverse">
-                <div className="bg-[#2d4562] text-white p-8 md:w-1/2 flex flex-col justify-center">
-                  <h3 className="text-5xl font-bold mb-6 text-[#00e1ff]">BOXE</h3>
-                  <p className="text-lg">Chaque entraînement combine travail cardio, renforcement musculaire et apprentissage des gestes techniques, que ce soit en ombre, sur sac ou en opposition.</p>
-                  <p className="mt-4 text-lg">Accessible à tous, la boxe permet de se défouler, gagner en confiance et améliorer sa condition physique tout en respectant des valeurs de respect et de contrôle.</p>
-                </div>
-                <div className="md:w-1/2 relative min-h-[300px] overflow-hidden">
-                  <img src="/images/boxe.png" alt="Entraînement de boxe" className="absolute inset-0 object-cover w-full h-full" />
+            <AnimatedSection delay={0.2}>
+              <div className="max-w-6xl mx-auto mb-16 overflow-hidden rounded-lg shadow-lg">
+                <div className="flex flex-col md:flex-row-reverse">
+                  <div className="bg-[#2d4562] text-white p-8 md:w-1/2 flex flex-col justify-center">
+                    <h3 className="text-5xl font-bold mb-6 text-[#00e1ff]">BOXE</h3>
+                    <p className="text-lg">Chaque entraînement combine travail cardio, renforcement musculaire et apprentissage des gestes techniques, que ce soit en ombre, sur sac ou en opposition.</p>
+                    <p className="mt-4 text-lg">Accessible à tous, la boxe permet de se défouler, gagner en confiance et améliorer sa condition physique tout en respectant des valeurs de respect et de contrôle.</p>
+                  </div>
+                  <div className="md:w-1/2 relative min-h-[300px] overflow-hidden">
+                    <img src="/images/boxe.png" alt="Entraînement de boxe" className="absolute inset-0 object-cover w-full h-full" />
+                  </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* Yoga */}
-            <div className="max-w-6xl mx-auto mb-16 overflow-hidden rounded-lg shadow-lg">
-              <div className="flex flex-col md:flex-row">
-                <div className="bg-[#00a0c6] text-white p-8 md:w-1/2 flex flex-col justify-center">
-                  <h3 className="text-5xl font-bold mb-6 text-[#5dff00]">YOGA</h3>
-                  <p className="text-lg">Que vous recherchiez souplesse, force, sérénité ou énergie, le yoga s'adapte à tous les niveaux et à toutes les aspirations.</p>
-                  <p className="mt-4 text-lg">Chaque séance est une invitation à écouter son corps, lâcher prise et se reconnecter à l'instant présent.</p>
-                </div>
-                <div className="md:w-1/2 relative min-h-[300px]">
-                  <Image src="/images/yoga.png" width={1000} height={1000} alt="Yoga" className="absolute inset-0 object-cover w-full h-full" />
+            <AnimatedSection delay={0.2}>
+              <div className="max-w-6xl mx-auto mb-16 overflow-hidden rounded-lg shadow-lg">
+                <div className="flex flex-col md:flex-row">
+                  <div className="bg-[#00a0c6] text-white p-8 md:w-1/2 flex flex-col justify-center">
+                    <h3 className="text-5xl font-bold mb-6 text-[#5dff00]">YOGA</h3>
+                    <p className="text-lg">Que vous recherchiez souplesse, force, sérénité ou énergie, le yoga s'adapte à tous les niveaux et à toutes les aspirations.</p>
+                    <p className="mt-4 text-lg">Chaque séance est une invitation à écouter son corps, lâcher prise et se reconnecter à l'instant présent.</p>
+                  </div>
+                  <div className="md:w-1/2 relative min-h-[300px]">
+                    <Image src="/images/yoga.png" width={1000} height={1000} alt="Yoga" className="absolute inset-0 object-cover w-full h-full" />
+                  </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* Cross Training */}
-            <div className="max-w-6xl mx-auto overflow-hidden rounded-lg shadow-lg">
-              <div className="flex flex-col md:flex-row-reverse">
-                <div className="bg-[#2d4562] text-white p-8 md:w-1/2 flex flex-col justify-center">
-                  <h3 className="text-5xl font-bold mb-6 text-[#00e1ff]">CROSS TRAINING</h3>
-                  <p className="text-lg">Le cross-training est une méthode d'entraînement polyvalente qui combine plusieurs disciplines sportives pour développer la force, l'endurance, l'agilité et la coordination.</p>
-                  <p className="mt-4 text-lg">Il repose sur des exercices variés et fonctionnels, sollicitant l'ensemble du corps et améliorant les performances physiques globales.</p>
-                </div>
-                <div className="md:w-1/2 relative min-h-[300px]">
-                  <Image src="/images/cross.png" width={1000} height={1000} alt="CrossTraining" className="absolute inset-0 object-cover w-full h-full" />
+            <AnimatedSection delay={0.2}>
+              <div className="max-w-6xl mx-auto overflow-hidden rounded-lg shadow-lg">
+                <div className="flex flex-col md:flex-row-reverse">
+                  <div className="bg-[#2d4562] text-white p-8 md:w-1/2 flex flex-col justify-center">
+                    <h3 className="text-5xl font-bold mb-6 text-[#00e1ff]">CROSS TRAINING</h3>
+                    <p className="text-lg">Le cross-training est une méthode d'entraînement polyvalente qui combine plusieurs disciplines sportives pour développer la force, l'endurance, l'agilité et la coordination.</p>
+                    <p className="mt-4 text-lg">Il repose sur des exercices variés et fonctionnels, sollicitant l'ensemble du corps et améliorant les performances physiques globales.</p>
+                  </div>
+                  <div className="md:w-1/2 relative min-h-[300px]">
+                    <Image src="/images/cross.png" width={1000} height={1000} alt="CrossTraining" className="absolute inset-0 object-cover w-full h-full" />
+                  </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
           </div>
         </section>
 
@@ -546,13 +578,25 @@ export default function WildPunchCampPage() {
         </div>
 
         {/* Bouton CTA flottant - Design moderne */}
-        <div className="fixed z-50 bottom-20 md:bottom-8 right-4 md:right-8">
+        <motion.div
+          className="fixed z-50 bottom-20 md:bottom-8 right-4 md:right-8"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+            delay: 2.5,
+          }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <Button className="flex items-center justify-center w-16 h-16 text-white transition-all duration-300 rounded-full shadow-xl bg-emerald-500 hover:bg-white hover:text-emerald-500">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
             </svg>
           </Button>
-        </div>
+        </motion.div>
       </main>
     </>
   );
