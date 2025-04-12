@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import styles from "../styles/WildPunchCamp.module.css";
-import StripeButton from "./components/Stripe";
+import Button from "./components/Button";
 
 export default function WildPunchCampPage() {
   return (
@@ -50,9 +50,7 @@ export default function WildPunchCampPage() {
             <p className={styles.location}>À seulement une 1H15 de Bordeaux</p>
 
             {/* Bouton CTA principal */}
-            <StripeButton amount={49900} productName="Wild Punch Camp - Séjour Sportif" className="inline-block px-8 py-4 mt-8 text-lg font-bold text-gray-900 transition-all duration-300 bg-white rounded-full shadow-lg hover:bg-[#4dcc00] hover:text-white">
-              RÉSERVER MA PLACE
-            </StripeButton>
+            <Button className="inline-block px-8 py-4 mt-8 text-lg font-bold text-gray-900 transition-all duration-300 bg-white rounded-full shadow-lg hover:bg-[#4dcc00] hover:text-white">RÉSERVER MA PLACE</Button>
           </div>
         </section>
 
@@ -444,9 +442,7 @@ export default function WildPunchCampPage() {
 
             {/* Bouton CTA après le programme */}
             <div className="mt-12 text-center">
-              <StripeButton amount={49900} productName="Wild Punch Camp - Séjour Sportif" className="inline-block px-8 py-4 text-lg font-bold text-gray-900 transition-all duration-300 bg-white rounded-full shadow-lg hover:bg-[#4dcc00] hover:text-white">
-                RÉSERVER MON SÉJOUR
-              </StripeButton>
+              <Button className="inline-block px-8 py-4 text-lg font-bold text-gray-900 transition-all duration-300 bg-white rounded-full shadow-lg hover:bg-[#4dcc00] hover:text-white">RÉSERVER MON SÉJOUR</Button>
             </div>
           </div>
         </section>
@@ -551,11 +547,11 @@ export default function WildPunchCampPage() {
 
         {/* Bouton CTA flottant - Design moderne */}
         <div className="fixed z-50 bottom-20 md:bottom-8 right-4 md:right-8">
-          <StripeButton amount={49900} productName="Wild Punch Camp - Séjour Sportif" className="flex items-center justify-center w-16 h-16 text-white transition-all duration-300 rounded-full shadow-xl bg-emerald-500 hover:bg-white hover:text-emerald-500">
+          <Button className="flex items-center justify-center w-16 h-16 text-white transition-all duration-300 rounded-full shadow-xl bg-emerald-500 hover:bg-white hover:text-emerald-500">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
             </svg>
-          </StripeButton>
+          </Button>
         </div>
       </main>
     </>
