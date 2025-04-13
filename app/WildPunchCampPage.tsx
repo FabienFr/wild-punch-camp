@@ -72,9 +72,9 @@ export default function WildPunchCampPage() {
               À seulement une 1H15 de Bordeaux
             </motion.p>
 
-            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 2 }}>
+            {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 2 }}>
               <Button className="inline-block px-8 py-4 mt-8 text-lg font-bold text-gray-900 transition-all duration-300 bg-white rounded-full shadow-lg hover:bg-[#4dcc00] hover:text-white">RÉSERVER MA PLACE</Button>
-            </motion.div>
+            </motion.div> */}
           </div>
         </section>
 
