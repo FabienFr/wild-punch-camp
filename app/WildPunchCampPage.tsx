@@ -18,6 +18,8 @@ export default function WildPunchCampPage() {
     cadre: false,
   });
 
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   const openLightbox = (name: keyof typeof lightboxes) => {
     setLightboxes((prev) => ({ ...prev, [name]: true }));
   };
@@ -75,7 +77,7 @@ export default function WildPunchCampPage() {
               </motion.div>
             </div>
 
-            <AnimatedText text="VIBREZ AU COEUR DE L'AQUITAINE DURANT 3 JOURS DE REMISE EN FORME" className={styles.tagline} delay={1} />
+            <AnimatedText text="VIBREZ AU COEUR DE L'AQUITAINE DURANT 3 JOURS PLEINS DE REMISE EN FORME" className={styles.tagline} delay={1} />
 
             <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.8, delay: 1.4 }} className={styles.separator}></motion.div>
 
@@ -356,39 +358,39 @@ export default function WildPunchCampPage() {
                     <div className="flex-1 text-white">ARRIVÉE GARE DE BORDEAUX</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full font-bold text-white sm:w-32 sm:text-white">10H30 - 11H30</div>
+                    <div className="w-full font-bold text-white sm:w-32 sm:text-white">10H30</div>
                     <div className="flex-1 text-white">TRANSPORT VAN POUR SALVÉO</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">11H30 - 12H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">11H30</div>
                     <div className="flex-1 text-white">BRIEFING STAGE</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">12H - 13H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">12H</div>
                     <div className="flex-1 text-white">REPAS</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">13H - 14H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">13H</div>
                     <div className="flex-1 text-white">SIESTE CHILL PISCINE</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">14H - 15H15</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">14H</div>
                     <div className="flex-1 text-white">PREPA PHYSIQUE</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">15H15 - 16H30</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">15H15</div>
                     <div className="flex-1 text-white">REPOS</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">16H30 - 18H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">16H30</div>
                     <div className="flex-1 text-white">DÉCOUVERTE BOXE</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">18H - 19H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">18H</div>
                     <div className="flex-1 text-white">BALNÉO</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">19H - 19H30</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">19H</div>
                     <div className="flex-1 text-white">RETOUR HÔTEL</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
@@ -403,43 +405,43 @@ export default function WildPunchCampPage() {
                 <h3 className="mb-6 text-4xl font-bold text-white">Vendredi 25</h3>
                 <div className="space-y-3">
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">9H - 10H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">9H</div>
                     <div className="flex-1 text-white">CROSS TRAINING</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">10H - 10H30</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">10H</div>
                     <div className="flex-1 text-white">REPOS</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">10H30 - 12H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">10H30</div>
                     <div className="flex-1 text-white">BOXE</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">12H - 13H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">12H</div>
                     <div className="flex-1 text-white">REPAS</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">13H - 14H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">13H</div>
                     <div className="flex-1 text-white">SIESTE CHILL PISCINE</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">14H - 15H15</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">14H</div>
                     <div className="flex-1 text-white">YOGA</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">15H15 - 16H30</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">15H15</div>
                     <div className="flex-1 text-white">REPOS</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">16H30 - 18H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">16H30</div>
                     <div className="flex-1 text-white">BOXE DAVID</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">18H - 19H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">18H</div>
                     <div className="flex-1 text-white">BALNÉO</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">19H - 19H30</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">19H</div>
                     <div className="flex-1 text-white">RETOUR HOTEL</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
@@ -454,15 +456,15 @@ export default function WildPunchCampPage() {
                 <h3 className="mb-6 text-4xl font-bold text-white">Samedi 26</h3>
                 <div className="space-y-3">
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">9H - 10H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">9H</div>
                     <div className="flex-1 text-white">CROSS TRAINING</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">10H - 10H30</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">10H</div>
                     <div className="flex-1 text-white">REPOS</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">10H30 - 12H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">10H30</div>
                     <div className="flex-1 text-white">BOXE</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
@@ -470,31 +472,31 @@ export default function WildPunchCampPage() {
                     <div className="flex-1 text-white">REPAS</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">13H - 14H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">13H</div>
                     <div className="flex-1 text-white">SIESTE CHILL PISCINE</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">14H - 16H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">14H</div>
                     <div className="flex-1 text-white">LES OLYMPIADES</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">16H - 17H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">16H</div>
                     <div className="flex-1 text-white">BALNÉO</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">17H - 17H30</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">17H</div>
                     <div className="flex-1 text-white">TRANSPORT CAVISTE</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">18H - 19H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">18H</div>
                     <div className="flex-1 text-white">DEGUSTATION VIN</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">19H - 19H30</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">19H</div>
                     <div className="flex-1 text-white">TRANSPORT LIEU SOIRÉE</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">19H30 - 23H</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">19H30</div>
                     <div className="flex-1 text-white">DINER GUINGUETTE</div>
                   </div>
                 </div>
@@ -505,11 +507,11 @@ export default function WildPunchCampPage() {
                 <h3 className="mb-6 text-4xl font-bold text-white">Dimanche 27</h3>
                 <div className="space-y-3">
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">9H30 - 10H30</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">9H30</div>
                     <div className="flex-1 text-white">BRUNCH DES SPORTIFS</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
-                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">10H30 - 11H30</div>
+                    <div className="w-full sm:w-32 font-bold text-white text-[#4dcc00] sm:text-white">10H30</div>
                     <div className="flex-1 text-white">RETOUR SUR BORDEAUX</div>
                   </div>
                   <div className="flex flex-col sm:flex-row">
@@ -643,7 +645,7 @@ export default function WildPunchCampPage() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <Button className="flex items-center justify-center w-16 h-16 text-white transition-all duration-300 rounded-full shadow-xl bg-emerald-500 hover:bg-white hover:text-emerald-500">
+          <Button className="flex items-center justify-center w-16 h-16 text-white transition-all duration-300 rounded-full shadow-xl bg-emerald-500 hover:bg-white hover:text-emerald-500" onClick={() => setIsFormOpen(true)}>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
             </svg>
@@ -733,6 +735,81 @@ export default function WildPunchCampPage() {
               </div>
             </div>
           </div>
+        </Lightbox>
+
+        <Lightbox isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} title="INSCRIPTION AU WILD PUNCH CAMP">
+          <div className="mb-6 text-center">
+            <p className="text-lg mb-4">Le camp est limité à 8 participants, pour garantir un accompagnement personnalisé et une vraie cohésion de groupe. On s'occupe de tout, je te donne RDV à la gare de Bordeaux jeudi 24 juillet entre 8H et 10H !</p>
+            <p className="text-lg mb-4">Si tu cherches une parenthèse hors du temps pour retrouver ton énergie et ton équilibre, ce camp est fait pour toi !</p>
+            <div className="bg-emerald-100 p-4 rounded-lg mb-6">
+              <p className="font-bold text-emerald-800">OFFRE DECOUVERTE jusqu'au jeudi 15 mai 2025 :</p>
+              <p className="text-2xl font-bold text-emerald-600">690€ TOUT COMPRIS</p>
+              <p className="text-sm text-emerald-700">( Le prix ne comprend pas le trajet jusqu'a la gare de Bordeaux : début et fin de stage )</p>
+            </div>
+          </div>
+
+          <form className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
+                  Prénom *
+                </label>
+                <input type="text" id="firstName" name="firstName" required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500" />
+              </div>
+              <div>
+                <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
+                  Nom *
+                </label>
+                <input type="text" id="lastName" name="lastName" required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500" />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  Email *
+                </label>
+                <input type="email" id="email" name="email" required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500" />
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                  Téléphone *
+                </label>
+                <input type="tel" id="phone" name="phone" required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500" />
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="sportLevel" className="block text-sm font-medium text-gray-700 mb-1">
+                Niveau sportif
+              </label>
+              <select id="sportLevel" name="sportLevel" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500">
+                <option value="beginner">Débutant</option>
+                <option value="intermediate">Intermédiaire</option>
+                <option value="advanced">Avancé</option>
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                Message (facultatif)
+              </label>
+              <textarea id="message" name="message" rows={4} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500" placeholder="Questions, besoins particuliers, allergies..."></textarea>
+            </div>
+
+            <div className="flex items-start">
+              <input id="terms" name="terms" type="checkbox" required className="h-4 w-4 text-emerald-600 focus:ring-emerald-500 border-gray-300 rounded mt-1" />
+              <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
+                J'accepte les conditions générales de vente et la politique de confidentialité *
+              </label>
+            </div>
+
+            <div className="text-center pt-4">
+              <button type="submit" className="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-full text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-colors">
+                Réserver ma place
+              </button>
+            </div>
+          </form>
         </Lightbox>
       </main>
     </>
