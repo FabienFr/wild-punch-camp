@@ -2,15 +2,30 @@
 
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/WildPunchCamp.module.css";
 import Button from "./components/Button";
 import AnimatedText from "./components/AnimatedText";
 import AnimatedSection from "./components/AnimatedSection";
 import { motion } from "framer-motion";
 import PunchingTitle from "./components/PunchingTitle";
+import Lightbox from "./components/Lightbox";
 
 export default function WildPunchCampPage() {
+  const [lightboxes, setLightboxes] = useState({
+    salveo: false,
+    activities: false,
+    cadre: false,
+  });
+
+  const openLightbox = (name: keyof typeof lightboxes) => {
+    setLightboxes((prev) => ({ ...prev, [name]: true }));
+  };
+
+  const closeLightbox = (name: keyof typeof lightboxes) => {
+    setLightboxes((prev) => ({ ...prev, [name]: false }));
+  };
+
   return (
     <>
       <Head>
@@ -84,9 +99,35 @@ export default function WildPunchCampPage() {
           <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-[#00a0c6] opacity-10 -ml-24 -mb-24"></div>
 
           <div className="relative z-10 max-w-6xl mx-auto">
-            <h2 className={`${styles.title2} mb-8 text-[#00a0c6]`}>RECONNECTEZ-VOUS À L'ESSENTIEL</h2>
-            <div className="h-2 w-64 bg-[#5dff00] mx-auto mb-10"></div>
-            <p className="max-w-3xl mx-auto text-lg text-gray-700">Imaginé par Brice Goillot, ce séjour allie dépassement de soi, nature et convivialité. Entraînements dynamiques, conseils personnalisés et moments de détente encadrés par des coachs passionnés.</p>
+            <AnimatedSection>
+              <h2 className={`${styles.title2} mb-8 text-[#00a0c6]`}>RECONNECTEZ-VOUS À L'ESSENTIEL</h2>
+              <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="h-2 w-64 bg-[#5dff00] mx-auto mb-10"></motion.div>
+            </AnimatedSection>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <AnimatedSection delay={0.2}>
+                <div className="text-left">
+                  <p className="text-lg text-gray-700 mb-4">
+                    <span className="font-bold text-[#00a0c6]">Je suis Brice Goillot</span>, fondateur et organisateur de ce séjour de remise en forme en pleine nature. Passionné de boxe et d'expériences humaines hors normes, je vous propose de vivre
+                    <span className="font-bold text-[#5dff00]"> le 1er WILD PUNCH CAMP</span>.
+                  </p>
+                  <p className="text-lg text-gray-700 mb-4">
+                    Convaincu que le bien-être passe autant par le dépassement de soi que par la reconnexion à la nature, j'ai conçu ce séjour comme une expérience immersive et complète : des entraînements dynamiques, des conseils personnalisés et des moments de récupération dans un cadre apaisant.
+                  </p>
+                  <p className="text-lg text-gray-700">Préparez-vous à un séjour sportif unique aux côtés de coachs passionnés et engagés !</p>
+                </div>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.4}>
+                <motion.div className="relative rounded-lg overflow-hidden shadow-xl" whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
+                  <img src="/images/essentiel.png" alt="Brice Goillot" className="w-full h-auto rounded-lg" />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                    <p className="text-white font-bold">Brice Goillot</p>
+                    <p className="text-[#5dff00] text-sm">Fondateur Wild Punch Camp</p>
+                  </div>
+                </motion.div>
+              </AnimatedSection>
+            </div>
           </div>
         </section>
 
@@ -97,6 +138,14 @@ export default function WildPunchCampPage() {
               <h2 className={`${styles.title2} text-[#00a0c6] pb-8`}>LE PACK SPORT</h2>
               <div className="h-2 w-64 bg-[#5dff00] mx-auto mb-10"></div>
             </div>
+
+            <p className="pb-6 text-lg">
+              A 1H15 de Bordeaux, ce séjour fitness, boxe et bien-être dans le Réolais prend un accent du sud-ouest ! Pour ceux qui hésitent encore entre des vacances sportives ou un séjour bien-être et détente, on a trouvé le bon compromis ! Prenez soin de vous, prenez le soleil, prenez de bons conseils et surtout…
+            </p>
+            <p className="pb-12 text-lg">
+              Prenez votre corps en main! Nous vous proposons un séjour de remise en forme sur 4 jours et 3 nuits pour un groupe de 8 personnes de tous niveaux sportifs. Axés sur du cross-training, la boxe pied poing et le yoga, cette parenthèse sportive vous apportera une expérience unique en pleine nature. On
+              s'occupe de tout ! De la gare de Bordeaux / pension complète / activités …
+            </p>
 
             {/* Prépa Physique */}
             <AnimatedSection delay={0.2}>
@@ -114,7 +163,7 @@ export default function WildPunchCampPage() {
               </div>
             </AnimatedSection>
 
-            {/* La Boxe */}
+            {/* Boxe */}
             <AnimatedSection delay={0.2}>
               <div className="max-w-6xl mx-auto mb-16 overflow-hidden rounded-lg shadow-lg">
                 <div className="flex flex-col md:flex-row-reverse">
@@ -225,48 +274,51 @@ export default function WildPunchCampPage() {
 
           <div className="relative max-w-6xl px-6 mx-auto">
             <div className="mb-12 text-center">
-              <h2 className={`${styles.title2} mb-8 text-[#00a0c6]`}>TOUT EST INCLUS</h2>
-              <div className="h-2 w-64 bg-[#5dff00] mx-auto"></div>
-            </div>
+              <h2 className={`${styles.title2} mb-8 text-[#00a0c6]`}>LE TOUT INCLUS HAUT DE GAMME</h2>
+              <div className="h-2 w-64 bg-[#5dff00] mx-auto mb-8"></div>
 
-            <div className="grid grid-cols-1 gap-4 py-8 md:gap-8 md:grid-cols-3">
-              <div className="p-4 md:p-6 transition-transform transform rounded-lg shadow-lg hover:scale-105 border-l-4 border-[#0088aa] relative overflow-hidden">
-                <div
-                  className="absolute inset-0 z-0"
-                  style={{
-                    backgroundImage: 'url("/images/hotel.png")',
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                ></div>
-                <div className="absolute inset-0 z-10 bg-slate-900 opacity-30"></div>
-                <h3 className="relative z-20 mb-2 text-xl font-bold text-white md:mb-4 md:text-2xl">TRANSPORT & HÉBERGEMENT</h3>
-              </div>
+              <div className="grid grid-cols-1 gap-4 py-8 md:gap-8 md:grid-cols-3">
+                <motion.div className="p-4 md:p-6 transition-transform transform rounded-lg shadow-lg hover:scale-105 border-l-4 border-[#0088aa] relative overflow-hidden cursor-pointer" whileHover={{ scale: 1.03 }} onClick={() => openLightbox("salveo")}>
+                  <div
+                    className="absolute inset-0 z-0"
+                    style={{
+                      backgroundImage: 'url("/images/areole.jpg")',
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div className="absolute inset-0 z-10 bg-slate-900 opacity-50"></div>
+                  <h3 className="relative z-20 mb-2 text-xl font-bold text-white md:mb-4">TRANPORT & HEBERGEMENT</h3>
+                  <p className="relative z-20 text-white">zero prise de tête</p>
+                </motion.div>
 
-              <div className="p-4 md:p-6 transition-transform transform rounded-lg shadow-lg hover:scale-105 border-l-4 border-[#0088aa] relative overflow-hidden">
-                <div
-                  className="absolute inset-0 z-0"
-                  style={{
-                    backgroundImage: 'url("/images/cadre.png")',
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                ></div>
-                <div className="absolute inset-0 z-10 bg-slate-900 opacity-30"></div>
-                <h3 className="relative z-20 mb-2 text-xl font-bold text-white md:mb-4 md:text-2xl">ACTIVITÉS & LOISIRS</h3>
-              </div>
+                <motion.div className="p-4 md:p-6 transition-transform transform rounded-lg shadow-lg hover:scale-105 border-l-4 border-[#0088aa] relative overflow-hidden cursor-pointer" whileHover={{ scale: 1.03 }} onClick={() => openLightbox("activities")}>
+                  <div
+                    className="absolute inset-0 z-0"
+                    style={{
+                      backgroundImage: 'url("/images/emilion.jpg")',
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div className="absolute inset-0 z-10 bg-slate-900 opacity-50"></div>
+                  <h3 className="relative z-20 mb-2 text-xl font-bold text-white md:mb-4">ACTIVITÉS & LOISIRS</h3>
+                  <p className="relative z-20 text-white">dynamique collective</p>
+                </motion.div>
 
-              <div className="p-4 md:p-6 transition-transform transform rounded-lg shadow-lg hover:scale-105 border-l-4 border-[#0088aa] relative overflow-hidden">
-                <div
-                  className="absolute inset-0 z-0"
-                  style={{
-                    backgroundImage: 'url("/images/stemilion.png")',
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                ></div>
-                <div className="absolute inset-0 z-10 bg-slate-900 opacity-30"></div>
-                <h3 className="relative z-20 mb-2 text-xl font-bold text-white md:mb-4 md:text-2xl">CADRE & AMBIANCE</h3>
+                <motion.div className="p-4 md:p-6 transition-transform transform rounded-lg shadow-lg hover:scale-105 border-l-4 border-[#0088aa] relative overflow-hidden cursor-pointer" whileHover={{ scale: 1.03 }} onClick={() => openLightbox("cadre")}>
+                  <div
+                    className="absolute inset-0 z-0"
+                    style={{
+                      backgroundImage: 'url("/images/salveo.jpg")',
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div className="absolute inset-0 z-10 bg-slate-900 opacity-50"></div>
+                  <h3 className="relative z-20 mb-2 text-xl font-bold text-white md:mb-4">CADRE & AMBIANCE</h3>
+                  <p className="relative z-20 text-white">espace découvertes</p>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -597,6 +649,91 @@ export default function WildPunchCampPage() {
             </svg>
           </Button>
         </motion.div>
+
+        {/* Lightboxes */}
+        <Lightbox isOpen={lightboxes.salveo} onClose={() => closeLightbox("salveo")} title="TRANSPORT & HEBERGEMENT">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <img src="/images/Amani-hostel2.jpg" alt="Cadre" className="w-full h-auto rounded-lg mb-4" />
+              <div className="grid grid-cols-2 gap-2">
+                <img src="/images/Amani-hostel.jpg" alt="Cadre" className="w-full h-auto rounded-lg" />
+                <img src="/images/areole.jpg" alt="Cadre" className="w-full h-auto rounded-lg" />
+              </div>
+            </div>
+            <div>
+              <p className="text-lg mb-4">Le Wild Punch Camp se déroule dans un cadre exceptionnel au cœur de l'Entre-deux-Mers, une région viticole préservée entre Garonne et Dordogne.</p>
+              <p className="text-lg mb-4">Vous serez logés à l'hôtel Amañi, niché dans la cité médiévale de La Réole, offrant confort et authenticité dans un environnement chargé d'histoire.</p>
+              <p className="text-lg mb-4">L'ambiance du séjour est à la fois dynamique et bienveillante, favorisant le dépassement de soi tout en créant des liens entre participants dans une atmosphère conviviale et sans jugement.</p>
+              <div className="mt-6">
+                <h4 className="text-xl font-bold text-[#5dff00] mb-2">Points forts</h4>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Cadre naturel préservé propice à la reconnexion</li>
+                  <li>Hébergement de charme dans une cité médiévale</li>
+                  <li>Ambiance conviviale et bienveillante</li>
+                  <li>Groupe limité à 8 personnes pour un suivi personnalisé</li>
+                  <li>Gastronomie locale mettant en valeur les produits du terroir</li>
+                  <li>Équilibre parfait entre effort et récupération</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </Lightbox>
+
+        <Lightbox isOpen={lightboxes.activities} onClose={() => closeLightbox("activities")} title="ACTIVITÉS & LOISIRS">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <img src="/images/emilion.jpg" alt="Activités" className="w-full h-auto rounded-lg mb-4" />
+              <div className="grid grid-cols-2 gap-2">
+                <img src="/images/emilion2.jpg" alt="Activités" className="w-full h-auto rounded-lg" />
+                <img src="/images/emilion3.jpg" alt="Activités" className="w-full h-auto rounded-lg" />
+              </div>
+            </div>
+            <div>
+              <p className="text-lg mb-4">Votre séjour Wild Punch Camp est conçu pour offrir un équilibre parfait entre effort physique et moments de détente.</p>
+              <p className="text-lg mb-4">Chaque journée est rythmée par des sessions d'entraînement variées (CrossFit, boxe, yoga) adaptées à tous les niveaux, alternant avec des moments de récupération et de loisirs.</p>
+              <p className="text-lg mb-4">Vous profiterez également d'activités culturelles comme la visite de Saint-Émilion et une dégustation de vins locaux, ainsi que d'une soirée guinguette pour clôturer votre séjour dans une ambiance conviviale.</p>
+              <div className="mt-6">
+                <h4 className="text-xl font-bold text-[#5dff00] mb-2">Programme des activités</h4>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Sessions quotidiennes de CrossFit, boxe et yoga</li>
+                  <li>Olympiades sportives en équipe</li>
+                  <li>Visite et dégustation à Saint-Émilion</li>
+                  <li>Accès quotidien à l'espace balnéo</li>
+                  <li>Soirée guinguette avec tapas</li>
+                  <li>Temps libres pour profiter du cadre naturel</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </Lightbox>
+
+        <Lightbox isOpen={lightboxes.cadre} onClose={() => closeLightbox("cadre")} title="CADRE & AMBIANCE">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <img src="/images/salveo.jpg" alt="Salvéo" className="w-full h-auto rounded-lg mb-4" />
+              <div className="grid grid-cols-2 gap-2">
+                <img src="/images/salveo3.jpg" alt="Salvéo" className="w-full h-auto rounded-lg" />
+                <img src="/images/salveo2.jpg" alt="Salvéo" className="w-full h-auto rounded-lg" />
+              </div>
+            </div>
+            <div>
+              <p className="text-lg mb-4">Sur les hauteurs de la vallée du Dropt, nichée en plein coeur de l'entre-deux-mers, cette ancienne bâtisse a conservé tout son charme comme si vous étiez à la maison !</p>
+              <p className="text-lg mb-4">Ce lieu magique encadré par des coachs professionnels vous fera vivre une expérience sportive unique.</p>
+              <p className="text-lg mb-4">Pour finir les journées en douceur, rien de tel qu'un espace Balnéo privatisé pour profiter de bains Hydromassants, sauna, hammam et piscine extérieure...</p>
+              <div className="mt-6">
+                <h4 className="text-xl font-bold text-[#5dff00] mb-2">Équipements disponibles</h4>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Salle de CrossFit entièrement équipée</li>
+                  <li>Ring de boxe professionnel</li>
+                  <li>Espace yoga avec vue sur la nature</li>
+                  <li>Espace balnéo avec sauna, hammam et jacuzzi</li>
+                  <li>Piscine extérieure</li>
+                  <li>Terrasse pour les moments de détente</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </Lightbox>
       </main>
     </>
   );
