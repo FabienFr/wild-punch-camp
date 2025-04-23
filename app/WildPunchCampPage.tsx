@@ -743,7 +743,7 @@ export default function WildPunchCampPage() {
             <p className="text-lg mb-4">Si tu cherches une parenthèse hors du temps pour retrouver ton énergie et ton équilibre, ce camp est fait pour toi !</p>
             <div className="bg-emerald-100 p-4 rounded-lg mb-6">
               <p className="font-bold text-emerald-800">OFFRE DECOUVERTE jusqu'au jeudi 15 mai 2025 :</p>
-              <p className="text-2xl font-bold text-emerald-600">690€ TOUT COMPRIS</p>
+              <p className="text-2xl font-bold text-emerald-600">500 € au lieu de 690€ TOUT COMPRIS</p>
               <p className="text-sm text-emerald-700">( Le prix ne comprend pas le trajet jusqu'a la gare de Bordeaux : début et fin de stage )</p>
             </div>
           </div>
